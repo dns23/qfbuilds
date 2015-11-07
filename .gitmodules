@@ -1,0 +1,9 @@
+[submodule "lib/qpcpp"]
+	path = lib/qpcpp
+	url = git://git.code.sf.net/p/qpc/qpcpp
+[submodule "lib/qpc"]
+	path = lib/qpc
+	url = git://git.code.sf.net/p/qpc/qpc
+[submodule "lib/qpn"]
+	path = lib/qpn
+	url = git://git.code.sf.net/p/qpc/qpn
