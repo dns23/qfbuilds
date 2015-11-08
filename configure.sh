@@ -16,5 +16,4 @@ if [ ! -d $TOOLCHAIN_DIR/gcc-arm-none-eabi-4_9-2015q3/ ]; then
    bunzip2 gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2 
    tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar 
    mv gcc-arm-none-eabi-4_9-2015q3 $TOOLCHAIN_DIR
-   ls -l $TOOLCHAIN_DIR/gcc-arm-none-eabi-4_9-2015q3/bin
 fi
