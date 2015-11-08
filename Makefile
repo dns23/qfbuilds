@@ -12,5 +12,6 @@ clean:
 -include qfbuilds.mk 
 
 # Supported QPC builds.
-$(eval $(call QF_BUILD_TARGETS_FCN,qpc,5.5.1,posix,qk))
-$(eval $(call QF_BUILD_TARGETS_FCN,qpc,5.5.1,posix,qv))
+$(eval $(call QF_BUILD_TARGETS_FCN,qpc,5.5.1,posix,))
+$(eval $(call QF_BUILD_TARGETS_FCN,qpc,5.5.1,arm-cm,qk))
+$(eval $(call QF_BUILD_TARGETS_FCN,qpc,5.5.1,arm-cm,qv))

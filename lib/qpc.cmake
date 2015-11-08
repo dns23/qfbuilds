@@ -1,11 +1,12 @@
 project(QPC)
 
+set(CMAKE_C_FLAGS)
 set(SRC_FILES_DIR ${QPC_SOURCE_DIR}/qpc/source)
 
 if (${QFBUILD_PORT} STREQUAL "posix")
     set(PORT_SRC_FILES_DIR ${QPC_SOURCE_DIR}/qpc/ports/${QFBUILD_PORT})
 else ()
-    set(PORT_SRC_FILES_DIR ${QPC_SOURCE_DIR}/qpc/ports/${QFBUILD_PORT}/${QFBUILD_KERNEL})
+    set(PORT_SRC_FILES_DIR ${QPC_SOURCE_DIR}/qpc/ports/${QFBUILD_PORT}/${QFBUILD_KERNEL}/gnu)
 endif ()
 
 file(GLOB PORT_SRC_FILES "${PORT_SRC_FILES_DIR}/*.c" "${PORT_SRC_FILES_DIR}/*.s")
@@ -23,9 +24,11 @@ if (NOT ${QFBUILD_PORT} STREQUAL "posix")
     else ()
         message(FATAL_ERROR "Unsupported Kernel")
     endif ()
+
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb -mcpu=cortex-m3 -MD")
 endif()
 
-set(CMAKE_C_FLAGS "-DQ_SPY") 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DQ_SPY")
 
 include_directories(
     ${QPC_SOURCE_DIR}/qpc/include
