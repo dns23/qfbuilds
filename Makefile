@@ -1,6 +1,7 @@
 MAKEFLAGS:=--silent
 
 ROOT_DIR:=$(CURDIR)
+SRC_DIR:=$(ROOT_DIR)
 BLD_DIR:=$(ROOT_DIR)/bld
 
 all: clean build
