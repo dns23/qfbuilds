@@ -1,12 +1,19 @@
 before_install:
+  - export TOOLCHAIN_DIR=$PWD/toolchains 
   - sudo apt-get update -qq
   - sudo apt-get install -qq cmake wget bzip2
-  - export PATH=$PATH:$HOME/toolchains/gcc-arm-none-eabi-4_9-2015q3/bin/
 
-install: ./configure.sh
+install:
+  - ./configure.sh
+  - export PATH=$PATH:$TOOLCHAIN_DIR/gcc-arm-none-eabi-4_9-2015q3/bin/
+
 script: make
 
 cache:
   apt: true
-  directories:
-  - $HOME/toolchains
+
+after_failure:
+  - echo "TOOLCHAIN DIR =$$TOOLCHAIN_DIR"
+  - echo "PATH          =$PATH"
+  - ls -l $TOOLCHAIN_DIR/gcc-arm-none-eabi-4_9-2015q3/bin/
+
