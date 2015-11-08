@@ -10,14 +10,11 @@ if [ ! -d $HOME/toolchains/gcc-arm-none-eabi-4_9-2015q3/ ]; then
    bunzip2 gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2 
    tar -xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar 
    mv gcc-arm-none-eabi-4_9-2015q3 $HOME/toolchains/
-   export PATH=$PATH:$HOME/toolchains/gcc-arm-none-eabi-4_9-2015q3/bin/
-
-   echo "System path is now..."
-   echo "PATH=$PATH"
 fi
 
 #
-# Check ARM compiler details
+# Check ARM compiler details. If these commands fail then the system path is not
+# configured correctly.
 arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
 arm-none-eabi-as --version

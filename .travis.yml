@@ -1,6 +1,7 @@
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq cmake wget bzip2
+  - export PATH=$PATH:$HOME/toolchains/gcc-arm-none-eabi-4_9-2015q3/bin/
 
 install: ./configure.sh
 script: make
